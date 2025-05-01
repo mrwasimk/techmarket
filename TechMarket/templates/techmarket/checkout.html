@@ -1,0 +1,32 @@
+{% extends "techmarket/base.html" %}
+{% block content %}
+<div class="content-section">
+    <h2 class="border-bottom pb-2 mb-4">Checkout Summary</h2>
+    
+    {% if basket_items %}
+        <ul class="list-group mb-3">
+            {% for item in basket_items %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                    <h6 class="my-0">{{ item.quantity }} x {{ item.product.name }}</h6>
+                </div>
+                <span class="text-muted">£{{ item.item_total }}</span>
+            </li>
+            {% endfor %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Total (GBP)</span>
+                <strong>£{{ total_price }}</strong>
+            </li>
+        </ul>
+
+        {# Link to the payment confirm page #}
+        <a href="{% url 'techmarket:confirm-payment' %}" class="btn btn-primary w-100 btn-lg">
+           Proceed to Payment
+        </a>
+
+    {% else %}
+        <p>Your basket is empty. Cannot proceed to checkout.</p>
+        <a href="{% url 'techmarket:product-list' %}" class="btn btn-outline-info">Continue Shopping</a>
+    {% endif %}
+</div>
+{% endblock content %}

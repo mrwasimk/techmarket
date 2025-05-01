@@ -1,0 +1,83 @@
+{% extends "techmarket/base.html" %}
+{% block content %}
+<button onclick="toggleScreenReader()" class="btn btn-warning m-2">Read Details</button>
+  <article class="media content-section">
+    {% if object.image %}
+      <img class="rounded product-detail-img me-3" src="{{ object.image.url }}" alt="{{ object.name }}">
+    {% endif %}
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.seller.username }}</a>
+        {% if object.seller == user %}
+          <div class="float-end">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'techmarket:product-edit' object.pk %}">Edit</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'techmarket:product-delete' object.pk %}">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+      <!-- Screen Reader -->
+      <div id="speakable-content">
+        <h2 class="article-title">{{ object.name }}</h2>
+        {% if object.category %}
+          <p class="text-muted">Category: <a href="{% url 'techmarket:product-list-by-category' object.category.slug %}">{{ object.category.name }}</a></p>
+        {% endif %}
+        {% if object.price %}
+          <p class="article-content"><strong>Price: £{{ object.price }}</strong></p>
+        {% endif %}
+        <p class="article-content">{{ object.description }}</p>
+      </div>
+      <!-- Basket Form-->
+      <form action="{% url 'techmarket:add-basket' object.id %}" method="post" class="mt-3">
+        {% csrf_token %}
+           <button type="submit" class="btn btn-outline-success btn-sm">Add to Basket</button>
+        </div>
+      </form>
+    </div>
+  </article>
+{% endblock content %}
+{% block scripts %}
+<script>
+function toggleScreenReader() {
+    console.log("Read Details button clicked."); // Testing
+    const contentDiv = document.getElementById('speakable-content');
+    if (contentDiv) {
+        // Extract text, trying to be smarter about structure
+        let textToSpeak = "";
+        const title = contentDiv.querySelector('h2.article-title');
+        const categoryP = contentDiv.querySelector('p.text-muted'); // Get the whole P tag
+        const priceP = contentDiv.querySelector('p.article-content strong'); // Get the strong tag
+        const descP = contentDiv.querySelectorAll('p.article-content'); // Get all description paragraphs
+
+        if (title) textToSpeak += title.innerText.trim() + ". ";
+        if (categoryP) {
+            // Try to read only the label and category name, not the link text itself if it's the same
+            let categoryText = categoryP.innerText.trim();
+            textToSpeak += categoryText + ". ";
+        }
+        if (priceP) textToSpeak += priceP.parentElement.innerText.trim() + ". "; // Read the whole price paragraph
+        
+        // Find the description paragraph(s) - excluding the price one if found
+        descP.forEach(p => {
+            if (!p.querySelector('strong')) { // Avoid re-reading the price paragraph
+                 textToSpeak += p.innerText.trim() + " ";
+            }
+        });
+
+        textToSpeak = textToSpeak.trim(); // Clean up trailing space
+
+        if (textToSpeak.length > 0) {
+            if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
+                console.log("Speaking:", textToSpeak); // Testing
+                responsiveVoice.cancel(); // Stop previous speech
+                responsiveVoice.speak(textToSpeak, "UK English Female");
+            } else {
+                console.error("ResponsiveVoice library not loaded/supported.");
+                alert("Text-to-speech is not available.");
+            }
+        } else {
+            console.log("No speakable content found.");
+        }
+    }
+}
+</script>
+{% endblock scripts %}

@@ -1,0 +1,381 @@
+UREC2 RESEARCH ETHICS PROFORMA FOR STUDENTS UNDERTAKING LOW RISK PROJECTS WITH HUMAN PARTICIPANTS
+
+This form is designed to help students and their supervisors to complete an ethical scrutiny of proposed research. The University Research Ethics Policy (www.shu.ac.uk/research/excellence/ethics-and-integrity/policies) should be consulted before completing this form. The initial questions are there to check that completion of the UREC 2 is appropriate for this study. The final responsibility for ensuring that ethical research practices are followed rests with the supervisor for student research.
+
+Note that students and staff are responsible for making suitable arrangements to ensure compliance with the General Data Protection Act (GDPR). This involves informing participants about the legal basis for the research, including a link to the University research data privacy statement and providing details of who to complain to if participants have issues about how their data was handled or how they were treated (full details in module handbooks).  In addition, the act requires data to be kept securely and the identity of participants to be anonymised. They are also responsible for following SHU guidelines about data encryption and research data management. Guidance can be found on the SHU Ethics Website www.shu.ac.uk/research/excellence/ethics-and-integrity
+
+Please note that it is mandatory for all students to only store data on their allotted networked F drive space and not on individual hard drives or memory sticks etc. 
+
+The present form also enables the University and College to keep a record confirming that research conducted has been subjected to ethical scrutiny.
+
+The UREC2 form must be completed by the student.  Supervisors will review their students’ completed UREC forms and, if necessary, inform students of any required changes.  For UREC2* (Low Risk Research with Human Participants), the supervisor then signs off the form.  Additional guidance can be obtained from your College Research Ethics Chair 
+* If the supervisor thinks that the project is likely to result in a publication then the UREC2 form must be reviewed by an independent reviewer, drawn from the module teaching team, before data collection begins. 
+Students should retain a copy for inclusion in their research project, and a copy should be uploaded to the relevant module Blackboard site. 
+
+Please note that it may be necessary to conduct a health and safety risk assessment for the proposed research. Further information can be obtained from the University’s Health and Safety Website https://sheffieldhallam.sharepoint.com/sites/3069/SitePages/Risk-Assessment.aspx
+
+
+SECTION A
+
+1.	Checklist questions to ensure that this is the correct form: 
+
+Health Related Research within the NHS, or His Majesty’s Prison and Probation Service (HMPPS), or with participants unable to provide informed consent check list.
+
+Question	Yes/No
+Does the research involve?	
+•	Patients recruited because of their past or present use of the NHS 	NO
+•	Relatives/carers of patients recruited because of their past or present use of the NHS 	NO
+•	Access to NHS staff, premises, or resources	NO
+•	Access to data, organs, or other bodily material of past or present NHS patients	NO
+•	Foetal material and IVF involving NHS patients	NO
+•	The recently dead in NHS premises	NO
+•	Prisoners or others within the criminal justice system recruited for health-related research	NO
+•	Police, court officials, prisoners, or others within the criminal justice system	NO
+•	Participants who are unable to provide informed consent due to their incapacity even if the project is not health related	NO
+•	Is this an NHS research project, service evaluation or audit?
+     For NHS definitions please see the following website http://www.hra.nhs.uk/documents/2013/09/defining-research.pdf
+NO
+
+If you have answered YES to any of the above questions, then you MUST consult with your supervisor to obtain research ethics from the appropriate institution outside the university. This could be from the NHS or Her Majesty’s Prison and Probation Service (HMPPS) under their independent Research Governance schemes. Further information is provided below. https://www.myresearchproject.org.uk/
+
+
+2.	Checks for Research with Human Participants
+
+Question	Yes/No
+1.	Will any of the participants be vulnerable?
+Note: Vulnerable people include children and young people, people with learning disabilities, people who may be limited by age or sickness, pregnancy, people researched because of a condition they have, etc. See full definition on ethics website in the document Code of Practice for Researchers Working with Vulnerable Populations (under the Supplementary University Polices and Good Research Practice Guidance)
+	
+NO
+2.	 Are drugs, placebos, or other substances (e.g., food substances, vitamins) to be administered to the study participants or will the study involve invasive, intrusive, or potentially harmful procedures of any kind?	NO
+3.	Will tissue samples (including blood) be obtained from participants?	NO
+4.	Is pain or more than mild discomfort likely to result from the study?	NO
+5.	Will the study involve prolonged or repetitive testing?	NO
+6.	Is there any reasonable and foreseeable risk of physical or emotional harm to any of the participants?
+Note: Harm may be caused by distressing or intrusive interview questions, uncomfortable procedures involving the participant, invasion of privacy, topics relating to highly personal information, topics relating to illegal activity, or topics that are anxiety provoking, etc.
+		
+		
+NO
+
+
+7.	Will anyone be taking part without giving their informed consent?	NO
+8.	Is the research covert?
+Note: ‘Covert research’ refers to research that is conducted without the knowledge of participants.	NO
+
+9.	Will the research output allow identification of any individual who has not given their express consent to be identified?	NO
+
+
+If you have answered YES to any of these questions you are REQUIRED to complete and submit a UREC3 or UREC4 form. Your supervisor will advise. If you have answered NO to all these questions, then proceed with this form (UREC2).
+
+
+3.	General Project Details
+
+Details	A website to buy electronic devices that has an array of electronics to buy like: phones, monitors, microphones etc.  
+Name of student	Muhammed Wasim Khan
+SHU email address	C1026187@hallam.shu.ac.uk
+Department/College	Computing
+Name of supervisor 	
+Konstantinos Domdouzis
+Supervisor’s email address	k.domdouzis@shu.ac.uk
+Title of proposed research	E-commerce Enabled Content Management System
+Proposed start date	24/01/2025
+Proposed end date	01/05/2025
+Background to the study and the rationale (reasons) for undertaking the research (500 words)	The evolution of e-commerce has transformed the way goods and services are now exchanged today. Online markets have now become a large part of the global economy. “Digital Sales Will Cross $6 Trillion as Stability settles In Across Core Markets” Cramer-Flood, E. (2024). being that this is a large market, and with only a growing economic standing, it has transformed the goods and services preferred method which was commuting to the store for goods which is no longer the norm, now using a computer or mobile phone has become more convenient for consumers. With online shopping being more affordable and efficient, many buyers prefer to shop online. According to Statista (2025)  in Online shopping behavior in the UK. Over 80% of Britan make online purchases, to put it in other words, over four in five UK consumers are digital buyers. It is an extremely lucrative market.
+Platforms such as eBay, Ebuyer, and Amazon are great examples of e-commerce sites that have capitalised on the need for online shopping with user-friendly interfaces, secure and efficient sites having usable search bars, robust SEO, and secure and personalised recommendations. This, in turn, enhances user experience, making these extremely attractive for consumers. These sites, alongside many others, demonstrate the importance of the aforementioned in an e-commerce platform.
+Despite the large growth and availability of E-commerce Enabled Content Management Systems, many suffer from drawbacks such as high costs, slow pages, accessibility, and complexity with confusing user interfaces, leading consumers to abandon half-full carts out of frustration. “According to a recent Statista report, shopping cart abandonment rates are alarmingly high, reaching 70% overall and escalating to 85% for mobile users and An outdated CMS often lacks support for modern design trends,  responsive layouts, and mobile-first interfaces.” Clark, S. (2024). As a result, customers may find it frustrating to navigate, especially on mobile devices as well as When page load times are slow, customers are highly likely to abandon the site.
+More than half of the world has a smartphone, and most do their shopping from it. Having the CMS work well with handsets is essential for scalability and platform diversity to be able to have a flawless shopping experience on all devices, with features such as touch-friendly navigation and fast load speeds with a clear handheld layout that is optimised.
+The rationale in this research will address the challenges of existing e-commerce CMS websites, such as high costs, slow loading times, clear UX design, and accessibility, which has little to no assist to a sizable demographic of consumers who rely on these. For example, consumers who are blind or visually impaired.
+Furthermore, in this research, AI-driven personalisation will be explored. For example, a consumer can communicate with an AI chatbot if they have any issues or enquiries, as well as potentially recommending products, exchange rates, and guidance or suggestions to consumers who are blind/visually impaired. This not only improves usability but also allows the platform to continue to scale and be flexible enough to be diverse in all types of people and businesses.
+Citations 
+Cramer-Flood, E. (2024b, September 6). Worldwide Retail ecommerce Forecast 2024 Midyear update. EMARKETER. https://www.emarketer.com/content/worldwide-retail-ecommerce-forecast-2024-midyear-update
+Clark, S. (2024b, April 9). Shopping cart abandonment and how to avoid it. CMSWire.com. https://www.cmswire.com/ecommerce/shopping-cart-abandonment-and-how-to-avoid-it/
+Online shopping behavior in the UK. (2025, March 10). Statista. https://www.statista.com/topics/7887/online-shopping-behavior-in-the-uk/#:~:text=The%20United%20Kingdom%20boasts%20the%20most%20developed,shop%20online%2C%20nearly%20all%20UK%20consumers%20do. 
+
+Aims & research question(s)	Aims
+To build a comprehensive website that is secure, efficient and user-friendly place to purchase electronic goods, ensuring a seamless shopping experience.
+To analyse the security and sustainability of an e-commerce business such as this by analysing risks and business viability.
+Framework is accessible by users who need assistance by including assistive technologies such as but not limited to screen readers for the blind or visually impaired to make the website usable for these people.
+Using Ai for general help for customer queries, product inquiries or website navigation this will be done by including an Ai chat bot.
+Using Ai to help blind/visually impaired people solutions such as Ai powered screen readers, voice search and natural language processing (NPL).
+Research question
+What concerns do buyers have when purchasing electronic goods online and how can these concerns be mitigated?
+How can the electronic goods purchased online be authentic and how to minimise the risk of fakes?
+How can accessibility be integrated for users who need assistance?
+What makes a UI “User friendly”?
+
+Methods to be used for:
+
+1.	Recruitment of participants 
+
+2.	Data collection
+
+3.	Data analysis	1.	Participants will be recruited by asking them for participation by email or a face-to-face invitation 
+2.	Use of a Questionnaire (or a Survey) for data collection. This is because of the capability that characterises questionnaires and surveys to collect large amounts of data from different participants efficiently based on their opinions and their experience of the project. 
+Types of Data collected
+•	Usability/Navigation, how easy is it to use the website.
+•	Accessibility, if the acessability features improve user experience though screen readers or voice search.
+•	Performance, how responsive the website is.
+•	User satisfaction and suggestions if improvements where to be made.
+
+3.	Use of Python modules to generate graphs that will analyse the collected feedback from users of the developed website.
+Outline the nature of the data held, details of anonymisation, storage and disposal procedures as required.	No profit will be made in this academic project with no real transactions only as a sandbox will PayPal and Debit be used as demonstration purposes.
+The data will be stored on my personal Sheffield Hallam Office 365 account as it is protected, and anonymity will be maintained insuring no personal information is shared.
+Any personal data will be destroyed and if they are on paper, they will be shredded.
+
+4. Research in External Organisations
+
+Question	Yes/No
+1.	Will the research involve working with/within an external organisation (e.g., school, business, charity, museum, government department, international agency, etc.)?	NO
+2.	If you answered YES to question 1, do you have granted access to conduct the research from the external organisation?
+If YES, students please show evidence to your supervisor. You should retain this evidence safely.	NO
+3.	If you do not have permission for access is this because:
+A.	you have not yet asked
+B.	you have asked and not yet received an answer
+C.	you have asked and been refused access
+
+Note: You will only be able to start the research when you have been granted access.	NO
+
+
+5.	Research with Products and Artefacts
+
+Question	Yes/No
+1. Will the research involve working with copyrighted documents, films, broadcasts, photographs, artworks, designs, products, programs, databases, networks, processes, existing datasets, or secure data?	YES
+2. If you answered YES to question 1, are the materials you intend to use in the public domain?
+
+Notes: ‘In the public domain’ does not mean the same thing as ‘publicly accessible’.
+•	Information which is 'in the public domain' is no longer protected by copyright (i.e., copyright has either expired or been waived) and can be used without permission.
+•	Information which is 'publicly accessible' (e.g., TV broadcasts, websites, artworks, newspapers) is available for anyone to consult/view. It is still protected by copyright even if there is no copyright notice. In UK law, copyright protection is automatic and does not require a copyright statement, although it is always good practice to provide one. It is necessary to check the terms and conditions of use to find out exactly how the material may be reused etc.
+
+If you answered YES to question 1, be aware that you may need to consider other ethics codes. For example, when conducting Internet research, consult the code of the Association of Internet Researchers; for educational research, consult the Code of Ethics of the British Educational Research Association.	NO
+3. If you answered NO to question 2, do you have explicit permission to use these materials as data?
+If YES, please show evidence to your supervisor.	YES
+4. If you answered NO to question 3, is it because: 
+A. you have not yet asked permission
+B. you have asked and not yet received and answer
+C. you have asked and been refused access.
+
+Note: You will only be able to start the research when you have been granted permission to use the specified material.	A/B/C
+
+
+SECTION B 
+
+HEALTH AND SAFETY RISK ASSESSMENT FOR THE RESEARCHER
+
+1.	Does this research project require a health and safety risk assessment for the procedures to be used?  (Discuss this with your supervisor) 
+
+	0	Yes 
+	0	No
+
+If YES the completed Health and Safety Risk Assessment form should be attached. A standard risk assessment form can be generated through the Awaken system (https://shu.awaken-be.com). Alternatively if you require more specific risk assessment, e.g. a COSHH, attach that instead.
+
+
+2.	Will the data be collected fully online (no face-to-face contact with participants)?
+
+0	Yes (See the safety guidance for online research  and go to question 7b) 
+0	No (Go to question 3)
+
+	
+3.	Will the proposed data collection take place on campus?
+
+	0	Yes 	(Please answer questions 5 to 8)
+0	No 	(Please complete all questions and consult with your supervisor))
+
+
+4.	Where will the data collection take place?
+   	(Tick as many as apply if data collection will take place in multiple venues)
+
+	Location 	Please specify 
+0
+Researcher's Residence	HOME
+0
+Participant's Residence	     
+
+0
+Education Establishment	     
+
+0
+Other e.g., business/voluntary organisation, public venue    	     
+
+0
+Outside UK	     
+
+
+
+5.	How will you travel to and from the data collection venue?
+
+	0	On foot	0	By car		0	Public Transport  
+	0	Other (Please specify)      
+
+	Please outline how you will ensure your personal safety when travelling to and from the data collection venue.
+
+
+n/a
+
+
+6.	How will you ensure your own personal safety whilst at the research venue? 
+
+n/a
+
+
+
+7.	Are there any potential risks to your health and wellbeing associated with either (a) the venue where the research will take place and/or (b) the research topic itself?
+
+	0	None that I am aware of  
+	0	Yes (Please outline below including steps taken to minimise risk)
+
+
+
+
+
+
+8.	If you are carrying out research off-campus, you must ensure that each time you go out to collect data you ensure that someone you trust knows where you are going (without breaching the confidentiality of your participants), how you are getting there (preferably including your travel route), when you expect to get back, and what to do should you not return at the specified time.  
+
+Please outline here the procedure you propose using to do this.
+
+
+n/a 
+
+
+ 
+Insurance Check
+
+The University’s standard insurance cover will not automatically cover research involving any of the following:
+
+i) Participants under 5 years old
+ii) Pregnant women
+iii) 5000 or more participants
+iv) Research being conducted in an overseas country
+v) Research involving aircraft and offshore oil rigs
+vi) Nuclear research
+vii) Any trials/medical research into Covid 19
+
+If your proposals do involve any of the above, please contact the Insurance Manager directly (fin-insurancequeries-mb@exchange.shu.ac.uk) to discuss this element of your project. 
+
+
+Adherence to SHU Policy and Procedures
+
+Ethics sign-off
+Personal statement
+I can confirm that:
+•	I have read the Sheffield Hallam University Research Ethics Policy and Procedures
+•	I agree to abide by its principles.
+Student 
+Name: MUHAMMED WASIM KHAN	Date: 24/01/2025
+Signature:
+
+Supervisor ethical sign-off
+I can confirm that completion of this form has not identified the need for ethical approval by the TPREC/CREC or an NHS, Social Care, or other external REC. The research will not commence until any approvals required under Sections 4 & 5 have been received and any necessary health and safety measures are in place.
+Name:	Date:
+Signature:
+Independent Reviewer ethical sign off 
+
+Name:	Date:
+Signature:
+
+Please ensure that you have attached all relevant documents. Your supervisor must approve them before you start data collection:
+
+Documents	Yes	No	N/A
+Research proposal if prepared previously	0
+0
+0
+
+Any recruitment materials (e.g., posters, letters, emails, etc.)	0
+0
+0
+
+Participant information sheet  	0
+0
+0
+
+Participant consent form 	0
+0
+0
+
+Details of measures to be used (e.g., questionnaires, etc.)	0
+0
+0
+
+Outline interview schedule / focus group schedule 	0
+0
+0
+
+Debriefing materials 	0
+0
+0
+
+Health and Safety Risk Assessment Form 	0
+0
+0
+
+
+PROJECT SPECIFICATION 2024/25
+
+Student name:
+	Muhammed Wasim Khan
+Student Id: 
+	31026187
+Supervisor name:
+	Konstantinos Domdouzis 
+Degree Course:
+	Bsc (Hons) Computing
+
+Title of Project:
+	E-commerce Enabled Content Management System
+Project overview: 
+Describe your project. If you have a real live client, state who they are, and explain what they want. If the project is linked to your placement, say so and explain how.
+This project involves developing an E-commerce website that allows users to buy electrical goods such as phones, TV’s, computers, microphones and other electronical devices. The goal of this project is to provide a user-friendly, fully functional and a platform where customers can browse and purchase products securely.
+ An important aspect of this project is to be accessible to customers who are blind and or visually impaired. The website will incorporate things such as screen readers, voice assist and simpler navigation, ensuring a user-friendly experience regardless of the customers’ ability to visually interpret the page.
+
+Project aims: 
+Clearly state the main aim of your project: the one, main thing you want to achieve. You may also have some additional aims that clarify your project’s overall purpose; for example, your client requirements, if you have a client. You'll refer to these aims when you reflect on the success of the project.
+•	To build a comprehensive framework for a website that is secure, efficient and user-friendly place to purchase electronic goods
+•	To analyse the security and sustainability of an e-commerce business such as this.
+•	Framework is accessible by users who need assistance. Using Ai for general help (Chat bot).
+•	Using Ai to help blind/visually impaired people.
+Project deliverable(s): 
+Describe what you will produce to achieve your project aims. This will typically be a software artefact but may include associated hardware, data or algorithms. Briefly describe the platform you expect to use to develop your deliverable and the engineering approaches you expect to use. You may mention possible alternatives.  
+You will expand on your choice of engineering approach, tools, techniques and methodologies in the assessment. For now, you just need to briefly outline your first thoughts on these choices.
+To deliver a fully functional e-commerce platform for secure purchase of electronic devices. This project will aim to be user-friendly, secure for online transactions and be usable to all including accessibility options for the blind or visually impaired.
+
+Engineering Approach
+•	Waterfall methodology, this approach allows each phase of the project to be completed chronologically with each phase needing to be completed before moving onto the next. This approach allows a more linear method of progression.
+
+•	Monolithic architecture, all components of the application will be stored in one repository due to this being a relatively small project scalability is currently not needed and if needed more machines can be added.
+
+Development tools
+Frontend: HTML, CSS, Bootstrap for a visually appeasing and responsive UI.
+Backend: Django (Python) for database operation, authentication.
+Database: Azure Labs for storing userdata, product details, transactions etc.
+Version control: GitHub for all past iterations of site if need for rollback.
+APIs: 
+•	Payment API: Paypal for secure transactions.
+•	AI Chat bot: For user assistance.
+
+First thoughts on methodology 
+•	UX/UI design 
+•	Accessibility design, to follow WCAG 2.1 (Web Content Accessibility Guidelines) for usability for blind/visually impaired users.
+•	Test Driven Development, applying tests before implanting to ensure the codes reliability.
+•	User Cantered Design, gather feedback from real users to improve the UX/Ui.
+Project objectives and initial project plan: 
+You project aims tell us what you want to do. Your project objectives explain how you intend to achieve those aims. Present your objectives as a list of tasks you need to complete in order to achieve your project aims (sometimes called a project backlog, or if it is hierarchical a work breakdown structure). 
+Use your list of project objectives to develop an initial project plan and include that plan here.
+
+•	Research and planning. Reviewing existing solutions, identify accessibility guidelines.
+•	Develop framework (Django, Python, HTML, CSS)
+•	Set up project environment
+•	Design and develop database
+•	Include Ai (Chat bot)
+•	Include accessibility options for blind and or visually impaired (Voice assistant)
+•	Develop framework further with better UI/UX design with accessibility in mind 
+•	Preform tests and gather feedback from recipients 
+•	Make changes if needed based on feedback given.
+
+Roles and responsibilities
+☒ I confirm that I have read the guidance on roles and responsibilities in the Module Documents section of Blackboard.
+
+Publication of Work
+☒ I confirm that I have read the guidance on publication procedures in the Module Documents section of Blackboard. 
+
+GDPR
+☒ I confirm that I will use the "Participant Information Sheet" as a basis for any survey, questionnaire, or participant testing materials.  
+
+

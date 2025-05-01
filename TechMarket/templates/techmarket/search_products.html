@@ -1,0 +1,37 @@
+{% extends "techmarket/base.html" %}
+{% block content %}
+  <div class="content-section">
+    <h1 class="mb-4 border-bottom">Product</h1>
+    <form method="get" action="{% url 'techmarket:search_products' %}">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="q" placeholder="Search products" value="{{ request.GET.q }}">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+    </form>
+
+    {% if query %}
+      <h2 class="mt-4">Search results for "{{ query }}"</h2>
+      {% if products %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                            <a href="{% url 'techmarket:product-detail' product.slug %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+      {% else %}
+        <p>No products found...</p>
+      {% endif %}
+    {% else %}
+      <p>Please enter product name.</p>
+    {% endif %}
+  </div>
+{% endblock content %} 
+

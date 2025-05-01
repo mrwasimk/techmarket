@@ -1,0 +1,37 @@
+{% extends "techmarket/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Registration Form</legend>
+            
+            {# Render User registration form #}
+            <p>User Details:</p>
+            {% crispy user_form %}
+            
+            <hr>
+            
+            {# Render Profile registration form #}
+            <p>Address & Other Details:</p>
+            {% crispy profile_form %}
+            
+        </fieldset>
+
+        <div class="form-group mt-3">
+            <button class="btn btn-outline-info" type="submit">Register</button>
+        </div>
+    </form>
+    
+    {# Ensure debug elements are removed #}
+    {# Remove test heading and direct field rendering #}
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Registered? <a class="ml-2" href="{% url 'login' %}">Login</a>
+        </small>
+    </div>
+</div>
+{% endblock content %}

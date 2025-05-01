@@ -1,0 +1,21 @@
+{% extends "techmarket/base.html" %}
+{% block content %}
+  <div class="content-section">
+    <h1 class="mb-4 border-bottom">Product Categories</h1>
+
+    {% if categories %}
+      <div class="list-group">
+        {% for category in categories %}
+          {# Link each category name to its product list page using its slug #}
+          <a href="{% url 'techmarket:product-list-by-category' category.slug %}" class="list-group-item list-group-item-action">
+            {{ category.name }}
+            {# Optional: Show product count - requires optimization for many products/categories #}
+            {# <span class="badge bg-secondary float-end">{{ category.products.count }}</span> #}
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No categories found.</p>
+    {% endif %}
+  </div>
+{% endblock content %} 

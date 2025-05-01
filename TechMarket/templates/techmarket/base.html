@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 and CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <!-- Dark Mode CSS -->
+    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}">
+    <title>TechMarket - {{ title }}</title>
+</head>
+<body>
+<div class="container">
+    <header class="site-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand me-4" href="{% url 'techmarket:home' %}">TechMarket</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
+                        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav me-auto">
+                        <a class="nav-item nav-link" href="{% url 'techmarket:home' %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'techmarket:about' %}">About</a>
+                        <a class="nav-item nav-link" href="{% url 'techmarket:product-list' %}">Products</a>
+                        <a class="nav-item nav-link" href="{% url 'techmarket:category-list' %}">Categories</a>
+                        <a class="nav-item nav-link" href="{% url 'techmarket:contact' %}">Contact</a>
+                    </div>
+                    <!-- Search Form-->
+                    <form class="d-flex mx-auto mx-md-2 my-2 my-md-0" method="GET" action="{% url 'techmarket:product-list' %}">
+                        <!--ID for Voice Search JavaScript -->
+                        <input id="search-input" class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search" name="q" value="{{ request.GET.q|default:'' }}">
+                        <!--microphone button-->
+                        <button type="button" id="mic-button" class="btn btn-outline-secondary" title="Search by voice" aria-label="Voice search" disabled>
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <!--Search Button -->
+                        <button class="btn btn-outline-success ms-1" type="submit">Search</button>
+                    </form>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                    <!-- User Authentication if logged in, show basket, profile and logout -->
+                    {% if user.is_authenticated %}
+                      <a class="nav-item nav-link" href="{% url 'techmarket:basket-view' %}">Basket</a>
+                      <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                      <form method="post" id="from_logout" action="{% url 'logout' %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-item nav-link" style="background:none; border:none; cursor:pointer;">Logout</button>
+                      </form>
+                      <!-- User Authentication if not logged in, show login and register -->
+                    {% else %}
+                      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                      <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                    {% endif %}
+                    <!-- Theme Toggle Button (Dark Mode)-->
+                    <li class="nav-item ms-2">
+                        <button id="theme-toggle-button" class="btn btn-outline-secondary"> Toggle Theme </button>
+                    </li>
+                    <!-- Read Page Button -->
+                     <li class="nav-item ms-2">
+                        <button id="read-page-button" class="btn btn-outline-info">Read Page</button>
+                     </li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content  -->
+    <main role="main" class="container mt-5 pt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="row mt-5 pt-4">
+            <div class="col-md-8">
+                {% block content %}{% endblock %}
+            </div>
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>General Information</h3>
+                    <p class='text-muted'>Explore our latest products and offers.
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light"><a href="{% url 'techmarket:product-list' %}">Products</a></li>
+                        <li class="list-group-item list-group-item-light"><a href="{% url 'techmarket:category-list' %}">Categories</a></li>
+                        <li class="list-group-item list-group-item-light"><a href="{% url 'techmarket:contact' %}">Contact</a></li>
+                        <li class="list-group-item list-group-item-light"><a href="{% url 'techmarket:about' %}">About</a></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="container mt-4 pt-4 border-top text-center">
+        <p>&copy; 2025 TechMarket. Muhammed Wasim Khan ..</p>
+    </footer>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsentBanner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; color: white; padding: 15px; text-align: center; z-index: 1050;">
+    We use cookies to improve your experience. By using our site, you agree to our <a href="/privacy/#cookies" style="color: #ccc; text-decoration: underline;">use of cookies</a>.
+    <button id="acceptCookieConsent" class="btn btn-primary btn-sm ms-3">Accept</button>
+</div>
+
+<!-- Bootstrap JS and Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+<!-- ResponsiveVoice API, accessibility js and darkmode js -->
+<script src='https://code.responsivevoice.org/responsivevoice.js?key=n9JWWFKY'></script>
+<script src="{% static 'js/accessibility.js' %}"></script>
+<script src="{% static 'js/darkmode.js' %}"></script>
+
+{% block scripts %}
+{% endblock %}
+
+<!-- Cookie Consent Script -->
+<script>
+    document.getElementById('acceptCookieConsent').addEventListener('click', function() {
+        document.getElementById('cookieConsentBanner').style.display = 'none';});
+</script>
+
+<!-- Read Page Script -->
+<script>
+    document.getElementById('read-page-button').addEventListener('click', function() {
+        if ('speechSynthesis' in window) {
+            const synth = window.speechSynthesis;
+            // Stop any previous speech
+            synth.cancel();
+
+            // Get the main content area
+            const mainContent = document.querySelector('main[role="main"]');
+            let textToRead = '';
+
+            if (mainContent) {
+                // Attempt to get text, excluding script/style tags and potentially hidden elements
+                textToRead = mainContent.innerText || mainContent.textContent;
+                // Basic cleanup - remove excessive whitespace
+                textToRead = textToRead.replace(/\s+/g, ' ').trim();
+            } else {
+                console.error('Main content area not found.');
+                alert('Could not find the main content to read.');
+                return;
+            }
+
+            if (textToRead) {
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                // Optional: Configure voice, rate, pitch here if needed
+                // utterance.voice = synth.getVoices().find(voice => voice.lang === 'en-US');
+                // utterance.rate = 1;
+                // utterance.pitch = 1;
+                synth.speak(utterance);
+            } else {
+                alert('No readable content found on the page.');
+            }
+        } else {
+            alert('Sorry, your browser does not support the text-to-speech feature.');
+        }
+    });
+</script>
+</body>
+</html>
