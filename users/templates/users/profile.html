@@ -1,0 +1,35 @@
+{% extends "techmarket/base.html" %}
+{% load crispy_forms_tags %} <!-- Loads crispyform -->
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+      <div class="me-3"> 
+        {% if user.profile.image %} <!-- Users profile pic -->
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile picture">
+        {% else %}
+          <img class="rounded-circle account-img" src="/media/profile_pics/default.png">
+        {% endif %}
+
+      </div>
+      <div class="media-body"> <!-- Users name, username and email -->
+        <h2 class="account-heading">{{ user.profile }}</h2> 
+        <p class="text-secondary">Username: {{ user.username }}</p>
+        <p class="text-secondary">Email: {{ user.email }}</p>
+      </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} <!-- CSRF protection with uploading mages -->
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Update Profile</legend>       
+        <p>User Info:</p>
+        {% crispy u_form %} <!-- User details -->
+        <hr>
+        <p>Address & Other Details:</p>
+        {% crispy p_form %}        <!-- User detaiks -->
+      </fieldset>
+      <div class="form-group mt-3">
+        <button class="btn btn-outline-info" type="submit">Update</button> <!-- Update profile button -->
+      </div>
+    </form>
+  </div>
+{% endblock content %}

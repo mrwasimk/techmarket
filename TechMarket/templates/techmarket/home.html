@@ -1,0 +1,32 @@
+{% extends 'TechMarket/base.html' %}
+
+{% block title %}Welcome to TechMarket{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to TechMarket!</h1>
+        <p class="lead">Your one-stop shop for all things tech.</p>
+        <hr class="my-4">
+        <p>Explore our wide range of products and categories.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'techmarket:product-list' %}" role="button">Shop Now</a>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h2>Latest Products</h2>
+            <p>Check out the newest additions to our store.</p>
+            <a class="btn btn-secondary" href="{% url 'techmarket:product-list' %}" role="button">View Products</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Top Categories</h2>
+            <p>Discover our categories.</p>
+            <a class="btn btn-secondary" href="{% url 'techmarket:category-list' %}" role="button">Browse Categories</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Special Offers</h2>
+            <p>Don't miss out on our exclusive deals.</p>
+            <a class="btn btn-secondary" href="#" role="button">See Offers</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

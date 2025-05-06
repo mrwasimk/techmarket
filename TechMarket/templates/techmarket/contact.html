@@ -1,0 +1,16 @@
+{% extends "techmarket/base.html" %}
+{% load crispy_forms_tags %}  <!-- loads crispy forms -->
+{% block content %}
+  <div class="content-section">
+    <form method="POST"> 
+      {% csrf_token %} <!-- CSRF for protection -->
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Contact Us</legend>
+        {{ form|crispy }} <!-- renders form -->
+      </fieldset>
+      <div class="form-group mt-4"> 
+        <button class="btn btn-outline-info" type="submit">Send Message</button> <!-- submit button -->
+      </div>
+    </form>
+  </div>
+{% endblock content %}
