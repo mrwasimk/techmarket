@@ -2,17 +2,17 @@
 
 {% block content %}
   <div class="content-section">
-    <form method="POST"> 
-      {% csrf_token %} 
+    <form method="POST">  
+      {% csrf_token %}  <!-- CRSF for security-->
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Delete Product</legend>
+        <legend class="border-bottom mb-4">Delete Product</legend>  <!-- foem heading for delete product -->
 
-        <h2>Are you sure you want to delete the product "{{ object.name }}"?</h2>
+        <h2>Are you sure you want to delete the product "{{ object.name }}"?</h2> <!-- Confirm message -->
       </fieldset>
       <div class="form-group mt-4">
-        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button> <!-- submit button-->
 
-        <a class="btn btn-outline-secondary" href="{% url 'techmarket:product-detail' object.pk %}">Cancel</a>
+        <a class="btn btn-outline-secondary" href="{% url 'techmarket:product-detail' object.pk %}">Cancel</a> <!--camncel to go back to the product detail page -->
       </div>
     </form>
   </div>

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const icon = themeToggleButton.querySelector('i');
 
-    // --- Helper Functions ---
+    //Help Functions
     const setCookie = (name, value, days) => {
         let expires = "";
         if (days) {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
-        // Set cookie to be available across the entire site
+        //cookies to be available across the entire site
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     };
 
@@ -36,17 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Initialization ---
-    // Get the current theme from cookie or default to 'light'
+    // Get the current theme 
     let currentTheme = getCookie('theme') || 'light';
     applyTheme(currentTheme); // Apply theme on initial load
 
-    // --- Event Listener ---
+    //Event Listen
     themeToggleButton.addEventListener('click', () => {
-        // Toggle theme
+        //Toggle theme
         currentTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
 
-        // Apply the new theme visually
+        //Apply the new theme
         applyTheme(currentTheme);
 
         // Save the preference in a cookie for 365 days

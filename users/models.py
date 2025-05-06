@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
-
+# Profile model
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics')
@@ -12,11 +12,11 @@ class Profile(models.Model):
     country = models.CharField(max_length=100, blank=True, null=True)
     bank_details_placeholder = models.CharField(max_length=255, blank=True, null=True, help_text="Placeholder only - Do not enter real bank details.")
 
-    def __str__(self):
+    def __str__(self): #admin debug
         return f'{self.user.username} Profile'
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-
+        # resized uploaded images
         if self.image and hasattr(self.image, 'path') and self.image.name != 'default.jpg':
             try:
                 img = Image.open(self.image.path)

@@ -10,46 +10,39 @@ from django.contrib.auth import logout
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ProfileRegisterForm 
 from .models import Profile # Import Profile model
 
-# Create your views here.
-
-# Registration View - Restore correct two-form handling
+# User registration view
 def register(request):
-    if request.method == 'POST':
-        # Use correct variable names
+    if request.method == 'POST': # Load data into both forms
         user_form = UserRegisterForm(request.POST)
-        # Profile form needs to be handled differently now
-        # profile_form = ProfileRegisterForm(request.POST)
-        
-        # Check validity of ONLY the user_form first
-        if user_form.is_valid():
-            user = user_form.save() # Save the User object - this triggers the create_profile signal
-            
-            # Now bind the profile form data to the EXISTING profile instance created by the signal
-            profile_form = ProfileRegisterForm(request.POST, instance=user.profile)
+        profile_form = ProfileRegisterForm(request.POST) 
 
-            # Validate and save the profile form to update the details
-            if profile_form.is_valid():
-                profile_form.save() # Saves the updates to user.profile
-                
-                username = user_form.cleaned_data.get('username')
-                messages.success(request, f'Account created for {username}! You can now log in.')
-                return redirect('login') # Redirect using the name from Tapps/urls.py
+        if user_form.is_valid() and profile_form.is_valid(): #Validate forms
+            user = user_form.save() #saves user
+            profile_instance_form = ProfileRegisterForm(request.POST, instance=user.profile)
+            if profile_instance_form.is_valid():
+                 profile_instance_form.save() 
             else:
-                # Profile form is invalid, errors should be shown
-                messages.error(request, 'Registration failed. Please correct the profile details below.') 
-                # Note: The user object was created, but profile update failed. 
-                # You might want to handle this case differently (e.g., delete the user or guide them to profile page)
-                # For now, we re-render the form with errors.
+                 messages.error(request, 'An unexpected error occurred updating profile details. Please contact support.')
+                 context = {
+                    'user_form': user_form, 
+                    'profile_form': profile_form, 
+                    'title': 'Registration'
+                 }
+                 return render(request, 'users/register.html', context)
+
+
+            username = user_form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}! You can now log in.')
+            return redirect('login') # Redirect to llogin
         else:
-            # User form is invalid, instantiate profile_form without instance for re-rendering
-            profile_form = ProfileRegisterForm(request.POST)
-            messages.error(request, 'Registration failed. Please correct the user details below.') 
+
+            messages.error(request, 'Registration failed. Please correct the errors below.') 
+
     else:
-        # For GET requests, instantiate blank forms
+        #sshow empty forms
         user_form = UserRegisterForm()
         profile_form = ProfileRegisterForm()
         
-    # Pass both forms to the template context with correct names
     context = {
         'user_form': user_form,
         'profile_form': profile_form,
@@ -57,14 +50,11 @@ def register(request):
     }
     return render(request, 'users/register.html', context)
 
-# Profile View - Handle two forms
+# Profile View 
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        # Pass instance=request.user for User form
+    if request.method == 'POST': #load updated data
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        # Pass instance=request.user.profile for Profile form
-        # Also pass request.FILES for image upload
         p_form = ProfileUpdateForm(request.POST, 
                                    request.FILES, 
                                    instance=request.user.profile)
@@ -72,11 +62,11 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, 'Your account has been updated!')
-            return redirect('profile') # Redirect back to profile page
+            return redirect('profile') # Redirect back to profile page if all good
         else:
              messages.error(request, 'Please correct the errors below.')
 
-    else:
+    else: #show values
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
@@ -87,21 +77,4 @@ def profile(request):
     }
     return render(request, 'users/profile.html', context)
 
-# Account Deletion View
-class AccountDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = User
-    template_name = 'users/user_confirm_delete.html'
-    success_url = reverse_lazy('techmarket:home') # Redirect to home page after deletion
-    # Ensure the user being deleted is the logged-in user
-    def test_func(self):
-        return self.request.user == self.get_object()
-    #Get the object to be deleted (the logged-in user)
-    def get_object(self, queryset=None):
-        return self.request.user
 
-    #Add success message after deletion
-    def form_valid(self, form):
-        user = self.get_object()
-        logout(self.request) #Logout the user out before deleting
-        messages.success(self.request, f'Account for {user.username} has been successfully deleted.')
-        return super().form_valid(form)

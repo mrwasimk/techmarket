@@ -4,7 +4,7 @@
     <h2>Confirm Your Order (Payment)</h2>
     <p>Please review your order details below. Clicking confirm will simulate a successful payment.</p>
     
-    {% if basket_items %}
+    {% if basket_items %} <!-- List each product in basket and price total -->
         <ul class="list-group mb-3">
             {% for item in basket_items %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -16,20 +16,20 @@
             {% endfor %}
             <li class="list-group-item d-flex justify-content-between">
                 <span>Total (GBP)</span>
-                <strong>£{{ total_price }}</strong>
+                <strong>£{{ total_price }}</strong> <!-- Total price of all products in basket-->
             </li>
         </ul>
 
-        {# Form to submit payment #}
+        <!-- Form to submit payment -->
         <form method="post" action="{% url 'techmarket:process-payment' %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-success w-100 btn-lg">Confirm Payment</button>
         </form>
-        <div class="text-center mt-3">
+        <div class="text-center mt-3"> <!-- cancel and retun to basket page -->
              <a href="{% url 'techmarket:basket-view' %}" class="btn btn-secondary">Cancel and Return to Basket</a>
         </div>
 
-    {% else %}
+    {% else %} <!-- if basket data is missing -->
         <p>There was an error retrieving your basket. Please go back.</p>
         <a href="{% url 'techmarket:basket-view' %}" class="btn btn-outline-info">Return to Basket</a>
     {% endif %}

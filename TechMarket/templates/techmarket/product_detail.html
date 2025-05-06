@@ -9,7 +9,7 @@
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ object.seller.username }}</a>
         {% if object.seller == user %}
-          <div class="float-end">
+          <div class="float-end"> <!--Edit or delete buttons -->
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'techmarket:product-edit' object.pk %}">Edit</a>
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'techmarket:product-delete' object.pk %}">Delete</a>
           </div>
@@ -38,25 +38,21 @@
 {% block scripts %}
 <script>
 function toggleScreenReader() {
-    console.log("Read Details button clicked."); // Testing
+    console.log("Read Details button clicked."); // Test
     const contentDiv = document.getElementById('speakable-content');
     if (contentDiv) {
-        // Extract text, trying to be smarter about structure
+        
         let textToSpeak = "";
         const title = contentDiv.querySelector('h2.article-title');
-        const categoryP = contentDiv.querySelector('p.text-muted'); // Get the whole P tag
+        const categoryP = contentDiv.querySelector('p.text-muted'); //Get the P tag
         const priceP = contentDiv.querySelector('p.article-content strong'); // Get the strong tag
-        const descP = contentDiv.querySelectorAll('p.article-content'); // Get all description paragraphs
-
+        const descP = contentDiv.querySelectorAll('p.article-content'); //Get all description paragraphs
+        // combine text in logical order
         if (title) textToSpeak += title.innerText.trim() + ". ";
-        if (categoryP) {
-            // Try to read only the label and category name, not the link text itself if it's the same
-            let categoryText = categoryP.innerText.trim();
-            textToSpeak += categoryText + ". ";
-        }
-        if (priceP) textToSpeak += priceP.parentElement.innerText.trim() + ". "; // Read the whole price paragraph
+        if (categoryP) {let categoryText = categoryP.innerText.trim();textToSpeak += categoryText + ". ";}
+        if (priceP) textToSpeak += priceP.parentElement.innerText.trim() + ". "; //Read the whole price paragraph
         
-        // Find the description paragraph(s) - excluding the price one if found
+        // find the description paragraph
         descP.forEach(p => {
             if (!p.querySelector('strong')) { // Avoid re-reading the price paragraph
                  textToSpeak += p.innerText.trim() + " ";
@@ -64,14 +60,14 @@ function toggleScreenReader() {
         });
 
         textToSpeak = textToSpeak.trim(); // Clean up trailing space
-
+          // speak the text using responsiveVoice.js 
         if (textToSpeak.length > 0) {
             if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
                 console.log("Speaking:", textToSpeak); // Testing
                 responsiveVoice.cancel(); // Stop previous speech
                 responsiveVoice.speak(textToSpeak, "UK English Female");
             } else {
-                console.error("ResponsiveVoice library not loaded/supported.");
+                console.error("ResponsiveVoice library not loaded/supported."); //testings
                 alert("Text-to-speech is not available.");
             }
         } else {

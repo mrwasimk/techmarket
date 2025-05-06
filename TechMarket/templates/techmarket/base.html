@@ -107,7 +107,7 @@
     </footer>
 </div>
 
-<!-- Cookie Consent Banner -->
+<!--Cookie Consent Banner-->
 <div id="cookieConsentBanner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; color: white; padding: 15px; text-align: center; z-index: 1050;">
     We use cookies to improve your experience. By using our site, you agree to our <a href="/privacy/#cookies" style="color: #ccc; text-decoration: underline;">use of cookies</a>.
     <button id="acceptCookieConsent" class="btn btn-primary btn-sm ms-3">Accept</button>
@@ -124,7 +124,7 @@
 <!-- ResponsiveVoice API, accessibility js and darkmode js -->
 <script src='https://code.responsivevoice.org/responsivevoice.js?key=n9JWWFKY'></script>
 <script src="{% static 'js/accessibility.js' %}"></script>
-<script src="{% static 'js/darkmode.js' %}"></script>
+<script src="{% static 'js/darkmode.js' %}"></script> 
 
 {% block scripts %}
 {% endblock %}
@@ -146,7 +146,6 @@
             // Get the main content area
             const mainContent = document.querySelector('main[role="main"]');
             let textToRead = '';
-
             if (mainContent) {
                 // Attempt to get text, excluding script/style tags and potentially hidden elements
                 textToRead = mainContent.innerText || mainContent.textContent;
@@ -157,13 +156,8 @@
                 alert('Could not find the main content to read.');
                 return;
             }
-
             if (textToRead) {
                 const utterance = new SpeechSynthesisUtterance(textToRead);
-                // Optional: Configure voice, rate, pitch here if needed
-                // utterance.voice = synth.getVoices().find(voice => voice.lang === 'en-US');
-                // utterance.rate = 1;
-                // utterance.pitch = 1;
                 synth.speak(utterance);
             } else {
                 alert('No readable content found on the page.');

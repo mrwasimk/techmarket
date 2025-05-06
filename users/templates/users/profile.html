@@ -1,43 +1,35 @@
 {% extends "techmarket/base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} <!-- Loads crispyform -->
 {% block content %}
   <div class="content-section">
     <div class="media">
       <div class="me-3"> 
-        {% if user.profile.image %}
+        {% if user.profile.image %} <!-- Users profile pic -->
           <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile picture">
         {% else %}
           <img class="rounded-circle account-img" src="/media/profile_pics/default.png">
         {% endif %}
 
       </div>
-      <div class="media-body">
+      <div class="media-body"> <!-- Users name, username and email -->
         <h2 class="account-heading">{{ user.profile }}</h2> 
         <p class="text-secondary">Username: {{ user.username }}</p>
         <p class="text-secondary">Email: {{ user.email }}</p>
       </div>
     </div>
     <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
+      {% csrf_token %} <!-- CSRF protection with uploading mages -->
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">Update Profile</legend>       
         <p>User Info:</p>
-        {% crispy u_form %}
+        {% crispy u_form %} <!-- User details -->
         <hr>
         <p>Address & Other Details:</p>
-        {% crispy p_form %}       
+        {% crispy p_form %}        <!-- User detaiks -->
       </fieldset>
       <div class="form-group mt-3">
-        <button class="btn btn-outline-info" type="submit">Update</button>
+        <button class="btn btn-outline-info" type="submit">Update</button> <!-- Update profile button -->
       </div>
     </form>
-
-    {#Delete Account Button #}
-    <div class="border-top pt-3 mt-4">
-      <h3 class="text-danger">Delete Account</h3>
-      <p class="text-muted">Permanently delete your account and all associated data.</p>
-      <a href="{% url 'account-delete' %}" class="btn btn-danger">Delete My Account</a>
-    </div>
-
   </div>
 {% endblock content %}

@@ -1,21 +1,20 @@
 {% extends "techmarket/base.html" %} 
-{% load crispy_forms_tags %} 
+{% load crispy_forms_tags %} <!-- Load crispy forms -->
 {% block content %} 
 <div class="content-section"> 
     <form method="POST"> 
-        {% csrf_token %} 
+        {% csrf_token %} <!--  CSRF for protection -->
         <fieldset class="form-group"> 
             <legend class="border-bottom mb-4">Login</legend>
-            {# Revert to standard crispy filter #}
-            {{ form|crispy }}
+            {{ form|crispy }} <!-- Render login with crispy -->
         </fieldset> 
         <div class="form-group mt-3"> 
-            <button class="btn btn-outline-info" type="submit">Login</button> 
+            <button class="btn btn-outline-info" type="submit">Login</button>  <!-- Login button -->
         </div> 
     </form> 
     <div class="border-top pt-3"> 
         <small class="text-muted"> 
-        Need an account? <a class="ml-2" href="{% url 'register' %}">Register Now</a>
+        Need an account? <a class="ml-2" href="{% url 'register' %}">Register Now</a> <!-- Link to register -->
         </small> 
     </div> 
 </div> 

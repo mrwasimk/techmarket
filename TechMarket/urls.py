@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from .views import (PostListView,PostCreateView,PostDetailView,PostUpdateView,PostDeleteView,CategoryListView,SearchResultsView, PrivacyPolicyView)
 
 app_name = 'techmarket'
-
+#URL patterns
 urlpatterns = [
     path('', views.home, name='home'), 
     path('contact/', views.contact, name='contact'),

@@ -4,7 +4,7 @@
     <h2 class="border-bottom pb-2 mb-4">Checkout Summary</h2>
     
     {% if basket_items %}
-        <ul class="list-group mb-3">
+        <ul class="list-group mb-3"> <!-- If theres items in the basket llist them -->
             {% for item in basket_items %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
                 <div>
@@ -15,16 +15,16 @@
             {% endfor %}
             <li class="list-group-item d-flex justify-content-between">
                 <span>Total (GBP)</span>
-                <strong>£{{ total_price }}</strong>
+                <strong>£{{ total_price }}</strong> <!-- total price -->
             </li>
         </ul>
 
-        {# Link to the payment confirm page #}
+        <!-- Link to the payment confirm page -->
         <a href="{% url 'techmarket:confirm-payment' %}" class="btn btn-primary w-100 btn-lg">
            Proceed to Payment
         </a>
 
-    {% else %}
+    {% else %} <!-- If basket is emply show link to product page -->
         <p>Your basket is empty. Cannot proceed to checkout.</p>
         <a href="{% url 'techmarket:product-list' %}" class="btn btn-outline-info">Continue Shopping</a>
     {% endif %}

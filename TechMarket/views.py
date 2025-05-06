@@ -11,13 +11,13 @@ from .forms import ProductForm, Contact
 import decimal
 from django.contrib.auth.decorators import login_required
 
-
+#Home Page
 def home(request):
     return render(request, 'techmarket/home.html', {'title': 'Home'})
-
+#About page
 def about(request):
     return render(request, 'techmarket/about.html', {'title': 'About'})
-
+#Contact submisson and sends email
 def contact(request):
     if request.method == "POST":
         form = Contact(request.POST)
@@ -45,20 +45,20 @@ def contact(request):
         form = Contact()
 
     return render(request, 'techmarket/contact.html', {'form': form, 'title': 'Contact'})
-
+#Search view
 class SearchResultsView(ListView):
     model = Product
     template_name = 'techmarket/search_products.html'
     context_object_name = 'products'
     ordering = ['-date_posted']
     paginate_by = 5
-
+#Prdcut list
 class PostListView(ListView):
     model = Product
     template_name = 'techmarket/products.html'
     context_object_name = 'products'
     ordering = ['-date_posted']
-
+    # catagory 
     def get_queryset(self):
         queryset = super().get_queryset()
         category_slug = self.kwargs.get('category_slug')
@@ -77,7 +77,7 @@ class PostListView(ListView):
 
         print(f"--- Queryset Count After Filtering: {queryset.count()} ---")
         return queryset.order_by('-date_posted')
-
+    #Page tiles
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         category_slug = self.kwargs.get('category_slug')
@@ -96,11 +96,11 @@ class PostListView(ListView):
             else:
                 context['title'] = 'All Products'
         return context
-
+#Product detail
 class PostDetailView(DetailView):
     model = Product
     template_name = 'techmarket/product_detail.html'
-
+#Product create
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Product
     template_name = 'techmarket/product_form.html'
@@ -113,7 +113,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy('techmarket:product-list')
-
+#Product update
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
     template_name = 'techmarket/product_form.html'
@@ -129,7 +129,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('techmarket:product-detail', kwargs={'pk': self.object.pk})
-
+#Product Delete
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Product
     template_name = 'techmarket/product_confirm_delete.html'
@@ -159,9 +159,8 @@ class CategoryListView(ListView):
 # Basket Views
 def add_to_basket(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    #Get the basket from the session, or initialize an empty one
     basket = request.session.get('basket', {})
-    #Get quantity from POST data, default to 1 if not provided
+    #Get quantity from POST data, default to 1 if not given
     quantity = int(request.POST.get('quantity', 1))
     if quantity > 0:
         basket[str(product_id)] = basket.get(str(product_id), 0) + quantity
@@ -209,7 +208,7 @@ def basket_remove(request, product_id):
         messages.warning(request, 'No item found in your basket.')
 
     return redirect('techmarket:basket-view')
-
+#chechout for payment
 @login_required
 def checkout_view(request):
     basket = request.session.get('basket', {})
@@ -228,7 +227,6 @@ def checkout_view(request):
                 'item_total': item_total,
             })
             total_price += item_total
-        # else: handle product might be missing or price is null?
 
     context = {
         'basket_items': basket_items,
@@ -236,7 +234,7 @@ def checkout_view(request):
         'title': 'Checkout Summary'
     }
     return render(request, 'techmarket/checkout.html', context)
-
+#confirm order
 @login_required
 def confirm_payment_view(request):
     # Re-fetch basket details to display on confirmation page
@@ -270,23 +268,20 @@ def confirm_payment_view(request):
         'title': 'Confirm Payment'
     }
     return render(request, 'techmarket/confirm_payment.html', context)
-
+#Simulates deleted product after "payment"
 @login_required
 def process_payment(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
-        product_ids_to_delete = list(basket.keys()) # Get product IDs before clearing
+        product_ids_to_delete = list(basket.keys()) #Gets product IDs before clearing
 
         if product_ids_to_delete:
             try:
-                # Convert IDs to integers for the query
+                #Convert IDs to integers for the query
                 product_ids_int = [int(pid) for pid in product_ids_to_delete]
-                
-                # Fetch and delete the actual Product objects
-                # WARNING: This deletes the product listing for ALL users.
                 products_to_delete = Product.objects.filter(pk__in=product_ids_int)
                 count, _ = products_to_delete.delete()
-                print(f"Deleted {count} Product objects from database.") # Debugging
+                print(f"Deleted {count} Product objects from database.") # Debugg
 
             except ValueError:
                 messages.error(request, "Error processing product IDs in basket.")
@@ -295,25 +290,25 @@ def process_payment(request):
                  messages.error(request, f"An error occurred while deleting products: {str(e)}")
                  return redirect('techmarket:basket-view')
         
-        # Clear the basket from the session
+        #Clear the basket
         if 'basket' in request.session:
             del request.session['basket']
             request.session.modified = True
-            print("Basket cleared after payment.") # Debugging
+            print("Basket cleared after payment.") # Debug
         else:
-            print("No basket found in session to clear.") # Debugging
+            print("No basket found in session to clear.") # Debug
         
         messages.success(request, "Your payment was successful, the items were removed from your basket, and the product listings were deleted.")
-        # Redirect to the home page after purches confirmation
+        #redirect to the home page
         return redirect('techmarket:home') 
     else:
-        # Redirect if accessed via GET
+        #redirect if accessed via GET
         messages.error(request, "Invalid request method.")
         return redirect('techmarket:basket-view')
-
+# Oder Confirm
 def order_confirmation_view(request):
     return render(request, 'techmarket/order-confirmation.html', {'title': 'Order Confirmed'})
-
+# prolicy page
 class PrivacyPolicyView(TemplateView):
     template_name = 'techmarket/privacy.html'
 

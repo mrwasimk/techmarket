@@ -1,10 +1,10 @@
 {% extends "techmarket/base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} <!-- Load crispy forms -->
 
 {% block content %}
   <div class="content-section">
     <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
+      {% csrf_token %} <!-- CSRF protection -->
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
           {% if object %}
@@ -13,11 +13,11 @@
             List a New Product
           {% endif %}
         </legend>
-        {{ form|crispy }}
+        {{ form|crispy }} <!-- Render form -->
       </fieldset>
       
       <div class="form-group mt-4">
-        <button class="btn btn-outline-info" type="submit">
+        <button class="btn btn-outline-info" type="submit"> <!-- change button deopending on updating or listing -->
           {% if object %}
             Update Product
           {% else %}

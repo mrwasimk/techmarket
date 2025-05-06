@@ -1,15 +1,14 @@
-    /* TechMarket/static/css/darkmode.css */
+    /* dark mode.css */
     body.dark-mode {
-        background-color: #1a1a1a; /* Dark background */
-        color: #e0e0e0; /* Light text */
+        background-color: #1a1a1a; 
+        color: #e0e0e0; 
     }
 
     /* Style links in dark mode */
     body.dark-mode a {
         color: #8cb4ff; /* Lighter blue for links */
     }
-
-     /* Style buttons in dark mode */
+    
     body.dark-mode .btn-outline-secondary {
         color: #adb5bd;
         border-color: #adb5bd;
@@ -22,23 +21,20 @@
 
     /* Style navbar in dark mode */
      body.dark-mode .navbar.bg-light {
-        background-color: #343a40 !important; /* Dark navbar background */
+        background-color: #343a40 !important; /* Dark navbar */
         border-bottom: 1px solid #495057;
      }
      body.dark-mode .navbar .navbar-brand,
      body.dark-mode .navbar .nav-link {
-        color: #f8f9fa; /* Light navbar text */
+        color: #f8f9fa; /* Lighter navbar text */
      }
      body.dark-mode .navbar .nav-link:hover {
-        color: #adb5bd; /* Lighter hover text */
+        color: #adb5bd; /* Lighter text */
      }
      body.dark-mode .navbar-toggler-icon {
-         /* Make toggler icon visible on dark background */
+         /*toggle icon visible on dark background */
          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
      }
-
-
-    /* Add more specific styles as needed for cards, forms, footers etc. */
      body.dark-mode .card {
         background-color: #2b2b2b;
         border: 1px solid #444;
